@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="stoop sale invitation website project" />
+
+    <title>Brooklyn Stoop Sale</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Barriecito' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <img id="logo" alt="Brooklyn Stoop Sale" src="C:\Users\Dieu\Downloads\Stoop Sale Logo (1).png" />
+            <h1>Brooklyn Stoop Sale</h1>
+            <nav>
+                <ul>
+                    <li><a href="#useful-info">INFO</a></li>
+                    <li><a href="#location">MAP</a></li>
+                    <li><a href="#photo-gallery">GALLERY</a></li>
+                    <li><a href="#quiz">QUIZ</a></li>
+                  </ul>
+            </nav>
+        </header>
+        <main>
+            <section role="region" aria-labelledby="introduction">
+                <h3>Hey Brooklynites! 👋 Get ready to uncover hidden treasures at our vibrant stoop sale!</h3>
+                <p>Whether you're hunting for unique pieces or simply want to enjoy a sunny day 🌤️ with the community, 
+                this event promises something for everyone. 
+                We hope to see you at this neighborhood event, so don't miss it! 😄</p>
+            </section>
+            <section role="region" aria-labelledby="useful-info">
+                <h2 id="useful-info">Useful Information</h2>
+                <p>Here are some pieces of information you might not want to miss: </p>
+                <div>
+                    <ul>
+                        <li>🗓️ This Stoop Sale will happen on <strong>Saturday 10th of August</strong> between <u>10 AM to 4 PM</u>.</li>
+                        <li>🛍️ Here are some of the <strong>things we’ll be selling</strong> clothes, home goods, shoes, tchotchkes,…</li>
+                        <li>💵 Don’t forget to <strong>bring some cash</strong> with you !</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section role="region" aria-labelledby="location">
+                <h2 id="location">Location</h2>
+                <p>📍 The map below shows the exact location of the event : 
+                    <u>the corner of 2nd Avenue and Court Street in Carroll Gardens</u>.</p>
+                <div id="map"></div>
+                <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                <script>
+                    // Coordinates for Carroll Gardens, Brooklyn
+                    var carrollGardens = [40.6803, -73.9940];
+
+                    var map = L.map('map').setView(carrollGardens, 15);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+
+                    var marker = L.marker(carrollGardens).addTo(map)
+                        .bindPopup('<h2>Carroll Gardens</h2><p>2nd Avenue, Court Street, Brooklyn, NY</p>')
+                        .openPopup();
+                </script>
+            </section> 
+
+            <section role="region" aria-labelledby="photo-gallery">
+                <h2 id="photo-gallery">A Little Preview</h2>
+                <p>Here is a little preview of what is waiting for you on the day of the event… 🤫</p>
+                <div class="gallery">
+                    <img src="https://i.pinimg.com/736x/f5/67/b6/f567b65dc4d2b178524570935b2eed50.jpg">
+                    <img src="https://i.pinimg.com/736x/3d/fe/9c/3dfe9cba5e2ade8f562713e72e6e8861.jpg">
+                    <img src="https://i.pinimg.com/564x/5a/36/ee/5a36ee405257df19744a081f50a45668.jpg">
+                    <img src="https://i.pinimg.com/564x/89/b9/c4/89b9c476e12aed4dcdc497c8042f5f18.jpg">
+                </div>
+            </section> 
+
+            <form method="post">
+                <section role="region" aria-labelledby="quiz">
+                    <h2 id="quiz">Questions</h2>
+                    <p>We have some questions for you !</p>
+                    <div class="question-block">
+                        <h3></h3>
+                        <fieldset class="question" name="items-question">
+                          <legend>
+                            Which items are you most excited to see at the sale?
+                          </legend>
+                          <ul class="answers-list">
+                            <li>
+                              <label for="q1-a1">
+                                <input type="radio" id="q1-a1" name="q1" value="clothes" />
+                                Clothes
+                              </label>
+                            </li>
+                            <li>
+                              <label for="q1-a2">
+                                <input type="radio" id="q1-a2" name="q1" value="home-goods" />
+                                Home Goods
+                              </label>
+                              <li>
+                                <label for="q1-a1">
+                                  <input type="radio" id="q1-a3" name="q1" value="shoes" />
+                                  Shoes
+                                </label>
+                              </li>
+                              <li>
+                                <label for="q1-a1">
+                                  <input type="radio" id="q1-a4" name="q1" value="tchotchkes" />
+                                  Tchotchkes
+                                </label>
+                              </li>
+                            </li>
+                          </ul>
+                        </fieldset>
+                        <fieldset class="question" name="time-period-question">
+                            <legend>
+                                What time do you plan to arrive?
+                            </legend>
+                            <ul class="answers-list">
+                              <li>
+                                <label for="q2-a1">
+                                  <input type="radio" id="q1-a1" name="q2" value="period1" />
+                                  10:00 AM - 12:00 AM
+                                </label>
+                              </li>
+                              <li>
+                                <label for="q2-a2">
+                                  <input type="radio" id="q1-a2" name="q2" value="period2" />
+                                  12:00 AM - 2:00 PM
+                                </label>
+                                <li>
+                                  <label for="q2-a3">
+                                    <input type="radio" id="q1-a3" name="q2" value="period3" />
+                                   2:00 PM - 4:00 PM
+                                  </label>
+                                </li>
+                            </ul>
+                          </fieldset>
+                      </div>
+                </section>
+                <div id="section">
+                    <button type="submit" id="btn">
+                        <p id="btnText">Send</p>
+                        <div class="checked">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+                            </svg>
+                        </div>
+                        <script>
+                            var btn = document.getElementById("btn");
+                            var btnText = document.getElementById("btnText");
+    
+                            btn.onclick = function() {
+                                btnText.innerHTML = "Thanks";
+                                btn.classList.add("active");
+                            }
+                        </script>
+                    </button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <div class="footerContainer">
+                <div class="socialIcons">
+                    <a href="https://www.instagram.com/codedex.io" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com/codedex_io" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.twitch.tv/codedex_io" target="_blank"><i class="fa-brands fa-twitch"></i></a>
+                    <a href="https://www.youtube.com/@codedex" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
